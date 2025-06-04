@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* THEME VARIABLES */
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --btn: #f0f0f0;
+  --btn-text: #111;
+  --accent: #0077ff;
+}
+body.dark {
+  --bg: #121212;
+  --text: #eee;
+  --btn: #333;
+  --btn-text: #fff;
+  --accent: #00ccff;
+}
+body.retro {
+  --bg: #000000;
+  --text: #00ff00;
+  --btn: #111;
+  --btn-text: #0f0;
+  --accent: #0f0;
+}
+
+.calculator-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: var(--bg);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.top-bar, .mode-switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode-switch button {
+  flex: 1;
+  margin: 0.5rem;
+  padding: 0.7rem;
+  background: var(--btn);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.display, #display {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--btn);
+  font-size: 1.5rem;
+  border-radius: 10px;
+  text-align: right;
+  animation: typing 0.4s ease;
+}
+
+@keyframes typing {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 1rem;
+  background: var(--btn);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  transition: transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: var(--accent);
+  color: #fff;
+}
+
+.history-panel {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: var(--btn);
+  border-radius: 8px;
+  color: var(--btn-text);
+}
+
+#splash-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeOut 2s forwards;
+  animation-delay: 2s;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
